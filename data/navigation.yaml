@@ -1,0 +1,14 @@
+links:
+  - label: "Over ons"
+    href: "#over-ons"
+  - label: "Architectuur"
+    href: "#architectuur"
+  - label: "Samenwerking"
+    href: "#samenwerking"
+  - label: "Kernwaarden"
+    href: "#kernwaarden"
+  - label: "Contact"
+    href: "#contact"
+cta:
+  label: "Gesprek plannen"
+  href: "#contact"

@@ -1,0 +1,117 @@
+<svg viewBox="0 0 500 560" fill="none" class="w-full h-auto max-w-[540px]" role="img" aria-label="Illustratie van een informatieboom met verbonden knooppunten voor Beleid, Archief, Data, Woo en AVG">
+  {{/* Ambient glow behind trunk */}}
+  <defs>
+    <radialGradient id="tree-glow-center" cx="50%" cy="60%" r="40%">
+      <stop offset="0%" stop-color="var(--color-primary)" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="var(--color-primary)" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <ellipse cx="250" cy="300" rx="180" ry="220" fill="url(#tree-glow-center)" />
+
+  {{/* Ground / base */}}
+  <ellipse cx="250" cy="540" rx="140" ry="16" fill="var(--color-gold)" opacity="0.18" class="tree-ground" />
+  <ellipse cx="250" cy="545" rx="90" ry="10" fill="var(--color-primary)" opacity="0.12" class="tree-ground-inner" />
+
+  {{/* Root / trunk */}}
+  <path
+    d="M250 520C250 520 250 440 250 380C250 320 230 300 230 260C230 220 250 200 250 180"
+    stroke="var(--color-primary)" stroke-width="5" stroke-linecap="round"
+    class="tree-path tree-trunk"
+  />
+  {{/* Root tendrils */}}
+  <path d="M250 520C250 520 220 510 200 530" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" class="tree-path tree-tendril" style="animation-delay: 0.3s;" />
+  <path d="M250 520C250 520 280 510 300 530" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" class="tree-path tree-tendril" style="animation-delay: 0.4s;" />
+  <path d="M250 500C250 500 210 495 190 510" stroke="var(--color-gold)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" class="tree-path tree-tendril" style="animation-delay: 0.5s;" />
+  <path d="M250 490C250 490 290 485 310 500" stroke="var(--color-gold)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" class="tree-path tree-tendril" style="animation-delay: 0.6s;" />
+
+  {{/* Main branches */}}
+  <path d="M250 300C250 300 200 270 160 240" stroke="var(--color-primary)" stroke-width="3.5" stroke-linecap="round" class="tree-path tree-branch" style="animation-delay: 0.8s;" />
+  <path d="M250 300C250 300 300 270 340 230" stroke="var(--color-primary)" stroke-width="3.5" stroke-linecap="round" class="tree-path tree-branch" style="animation-delay: 0.9s;" />
+  <path d="M250 260C250 260 180 230 140 180" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" class="tree-path tree-branch" style="animation-delay: 1.0s;" />
+  <path d="M250 260C250 260 310 220 360 170" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" class="tree-path tree-branch" style="animation-delay: 1.1s;" />
+
+  {{/* Secondary branches */}}
+  <path d="M250 220C250 220 220 180 200 140" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" class="tree-path" style="animation-delay: 1.2s;" />
+  <path d="M250 200C250 200 270 160 290 120" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" class="tree-path" style="animation-delay: 1.3s;" />
+  <path d="M160 240C160 240 130 220 110 190" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" class="tree-path" style="animation-delay: 1.3s;" />
+  <path d="M340 230C340 230 370 200 390 170" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" class="tree-path" style="animation-delay: 1.4s;" />
+  <path d="M140 180C140 180 110 150 90 130" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" class="tree-path" style="animation-delay: 1.5s;" />
+  <path d="M360 170C360 170 390 140 410 110" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" class="tree-path" style="animation-delay: 1.5s;" />
+
+  {{/* Tertiary fine branches */}}
+  <path d="M160 240C160 240 170 210 180 190" stroke="var(--color-primary)" stroke-width="1.2" stroke-linecap="round" opacity="0.6" class="tree-path" style="animation-delay: 1.6s;" />
+  <path d="M340 230C340 230 330 200 320 180" stroke="var(--color-primary)" stroke-width="1.2" stroke-linecap="round" opacity="0.6" class="tree-path" style="animation-delay: 1.6s;" />
+  <path d="M200 140C200 140 180 120 170 95" stroke="var(--color-primary)" stroke-width="1.2" stroke-linecap="round" opacity="0.5" class="tree-path" style="animation-delay: 1.7s;" />
+  <path d="M290 120C290 120 310 100 320 80" stroke="var(--color-primary)" stroke-width="1.2" stroke-linecap="round" opacity="0.5" class="tree-path" style="animation-delay: 1.7s;" />
+
+  {{/* Data node circles - outer glow */}}
+  <circle cx="160" cy="240" r="22" fill="var(--color-accent)" opacity="0.25" class="tree-node" style="animation-delay: 1.8s;" />
+  <circle cx="340" cy="230" r="22" fill="var(--color-primary)" opacity="0.25" class="tree-node" style="animation-delay: 1.9s;" />
+  <circle cx="140" cy="180" r="20" fill="var(--color-gold)" opacity="0.25" class="tree-node" style="animation-delay: 2.0s;" />
+  <circle cx="360" cy="170" r="20" fill="var(--color-accent)" opacity="0.25" class="tree-node" style="animation-delay: 2.1s;" />
+  <circle cx="200" cy="140" r="18" fill="var(--color-primary)" opacity="0.25" class="tree-node" style="animation-delay: 2.2s;" />
+  <circle cx="290" cy="120" r="18" fill="var(--color-gold)" opacity="0.25" class="tree-node" style="animation-delay: 2.3s;" />
+  <circle cx="250" cy="180" r="26" fill="var(--color-accent)" opacity="0.25" class="tree-node" style="animation-delay: 2.0s;" />
+
+  {{/* Data node circles - inner solid core */}}
+  <circle cx="160" cy="240" r="9" fill="var(--color-accent)" class="tree-node" style="animation-delay: 1.9s;" />
+  <circle cx="340" cy="230" r="9" fill="var(--color-primary)" class="tree-node" style="animation-delay: 2.0s;" />
+  <circle cx="140" cy="180" r="8" fill="var(--color-gold)" class="tree-node" style="animation-delay: 2.1s;" />
+  <circle cx="360" cy="170" r="8" fill="var(--color-accent)" class="tree-node" style="animation-delay: 2.2s;" />
+  <circle cx="200" cy="140" r="7" fill="var(--color-primary)" class="tree-node" style="animation-delay: 2.3s;" />
+  <circle cx="290" cy="120" r="7" fill="var(--color-gold)" class="tree-node" style="animation-delay: 2.4s;" />
+  <circle cx="250" cy="180" r="11" fill="var(--color-accent)" class="tree-node" style="animation-delay: 2.1s;" />
+
+  {{/* Node highlight dots */}}
+  <circle cx="160" cy="240" r="3" fill="#FFFFFF" opacity="0.6" class="tree-node" style="animation-delay: 2.1s;" />
+  <circle cx="340" cy="230" r="3" fill="#FFFFFF" opacity="0.6" class="tree-node" style="animation-delay: 2.2s;" />
+  <circle cx="140" cy="180" r="2.5" fill="#FFFFFF" opacity="0.6" class="tree-node" style="animation-delay: 2.3s;" />
+  <circle cx="360" cy="170" r="2.5" fill="#FFFFFF" opacity="0.6" class="tree-node" style="animation-delay: 2.4s;" />
+  <circle cx="250" cy="180" r="3.5" fill="#FFFFFF" opacity="0.6" class="tree-node" style="animation-delay: 2.3s;" />
+
+  {{/* Secondary smaller nodes */}}
+  <circle cx="110" cy="190" r="6" fill="var(--color-primary)" opacity="0.8" class="tree-node" style="animation-delay: 2.4s;" />
+  <circle cx="390" cy="170" r="6" fill="var(--color-gold)" opacity="0.8" class="tree-node" style="animation-delay: 2.5s;" />
+  <circle cx="90" cy="130" r="5" fill="var(--color-accent)" opacity="0.8" class="tree-node" style="animation-delay: 2.6s;" />
+  <circle cx="410" cy="110" r="5" fill="var(--color-primary)" opacity="0.8" class="tree-node" style="animation-delay: 2.7s;" />
+  <circle cx="180" cy="190" r="6" fill="var(--color-gold)" opacity="0.8" class="tree-node" style="animation-delay: 2.5s;" />
+  <circle cx="320" cy="180" r="6" fill="var(--color-accent)" opacity="0.8" class="tree-node" style="animation-delay: 2.5s;" />
+  <circle cx="170" cy="95" r="5" fill="var(--color-primary)" opacity="0.8" class="tree-node" style="animation-delay: 2.7s;" />
+  <circle cx="320" cy="80" r="5" fill="var(--color-gold)" opacity="0.8" class="tree-node" style="animation-delay: 2.8s;" />
+
+  {{/* Leaf decorations */}}
+  <path d="M0 -10C5 -10 10 -5 10 0C10 5 5 10 0 10C-5 10 -10 5 -10 0" fill="var(--color-primary)" opacity="0.3" transform="translate(120 210) rotate(-30)" class="tree-leaf" style="animation-delay: 2.5s;" />
+  <path d="M0 -10C5 -10 10 -5 10 0C10 5 5 10 0 10C-5 10 -10 5 -10 0" fill="var(--color-gold)" opacity="0.3" transform="translate(370 190) rotate(20)" class="tree-leaf" style="animation-delay: 2.6s;" />
+  <path d="M0 -10C5 -10 10 -5 10 0C10 5 5 10 0 10C-5 10 -10 5 -10 0" fill="var(--color-primary)" opacity="0.3" transform="translate(220 160) rotate(-15)" class="tree-leaf" style="animation-delay: 2.7s;" />
+  <path d="M0 -10C5 -10 10 -5 10 0C10 5 5 10 0 10C-5 10 -10 5 -10 0" fill="var(--color-accent)" opacity="0.3" transform="translate(280 140) rotate(25)" class="tree-leaf" style="animation-delay: 2.8s;" />
+  <path d="M0 -10C5 -10 10 -5 10 0C10 5 5 10 0 10C-5 10 -10 5 -10 0" fill="var(--color-primary)" opacity="0.3" transform="translate(100 150) rotate(-40)" class="tree-leaf" style="animation-delay: 2.9s;" />
+  <path d="M0 -10C5 -10 10 -5 10 0C10 5 5 10 0 10C-5 10 -10 5 -10 0" fill="var(--color-gold)" opacity="0.3" transform="translate(400 130) rotate(35)" class="tree-leaf" style="animation-delay: 2.9s;" />
+
+  {{/* Connection lines (data flow) */}}
+  <path d="M160 240C180 235 220 200 250 180" stroke="var(--color-gold)" stroke-width="1.2" stroke-dasharray="5 5" fill="none" opacity="0.35" class="tree-path" style="animation-delay: 2.3s;" />
+  <path d="M250 180C280 200 320 225 340 230" stroke="var(--color-accent)" stroke-width="1.2" stroke-dasharray="5 5" fill="none" opacity="0.35" class="tree-path" style="animation-delay: 2.4s;" />
+  <path d="M140 180C160 175 190 155 200 140" stroke="var(--color-gold)" stroke-width="1.2" stroke-dasharray="5 5" fill="none" opacity="0.35" class="tree-path" style="animation-delay: 2.5s;" />
+  <path d="M290 120C310 140 340 160 360 170" stroke="var(--color-primary)" stroke-width="1.2" stroke-dasharray="5 5" fill="none" opacity="0.35" class="tree-path" style="animation-delay: 2.6s;" />
+
+  {{/* Pulsing data dots */}}
+  <circle cx="205" cy="210" r="3" fill="var(--color-gold)" class="pulse-dot" style="animation-delay: 0s;" />
+  <circle cx="295" cy="205" r="3" fill="var(--color-accent)" class="pulse-dot" style="animation-delay: 0.4s;" />
+  <circle cx="170" cy="158" r="3" fill="var(--color-gold)" class="pulse-dot" style="animation-delay: 0.8s;" />
+  <circle cx="325" cy="145" r="3" fill="var(--color-primary)" class="pulse-dot" style="animation-delay: 1.2s;" />
+
+  {{/* Ambient floating particles */}}
+  <circle cx="80" cy="100" r="1.5" fill="var(--color-primary)" class="ambient-particle" style="animation-duration: 3s; animation-delay: 2.0s;" />
+  <circle cx="420" cy="80" r="1.5" fill="var(--color-primary)" class="ambient-particle" style="animation-duration: 3.5s; animation-delay: 2.5s;" />
+  <circle cx="150" cy="70" r="1" fill="var(--color-primary)" class="ambient-particle" style="animation-duration: 4s; animation-delay: 3.0s;" />
+  <circle cx="350" cy="60" r="1" fill="var(--color-primary)" class="ambient-particle" style="animation-duration: 3.2s; animation-delay: 3.5s;" />
+  <circle cx="250" cy="60" r="1.5" fill="var(--color-primary)" class="ambient-particle" style="animation-duration: 3.8s; animation-delay: 2.8s;" />
+  <circle cx="190" cy="260" r="1" fill="var(--color-primary)" class="ambient-particle" style="animation-duration: 4.2s; animation-delay: 3.2s;" />
+  <circle cx="310" cy="250" r="1" fill="var(--color-primary)" class="ambient-particle" style="animation-duration: 3.6s; animation-delay: 3.0s;" />
+
+  {{/* Node labels */}}
+  <text x="250" y="168" text-anchor="middle" fill="var(--color-accent)" font-size="9" font-family="'Outfit', sans-serif" font-weight="600" letter-spacing="0.5" opacity="0.7" class="tree-label" style="animation-delay: 2.8s;">Beleid</text>
+  <text x="155" y="255" text-anchor="middle" fill="var(--color-accent)" font-size="9" font-family="'Outfit', sans-serif" font-weight="600" letter-spacing="0.5" opacity="0.7" class="tree-label" style="animation-delay: 2.9s;">Archief</text>
+  <text x="345" y="245" text-anchor="middle" fill="var(--color-primary)" font-size="9" font-family="'Outfit', sans-serif" font-weight="600" letter-spacing="0.5" opacity="0.7" class="tree-label" style="animation-delay: 3.0s;">Data</text>
+  <text x="130" y="170" text-anchor="middle" fill="var(--color-gold)" font-size="9" font-family="'Outfit', sans-serif" font-weight="600" letter-spacing="0.5" opacity="0.7" class="tree-label" style="animation-delay: 3.1s;">Woo</text>
+  <text x="370" y="160" text-anchor="middle" fill="var(--color-accent)" font-size="9" font-family="'Outfit', sans-serif" font-weight="600" letter-spacing="0.5" opacity="0.7" class="tree-label" style="animation-delay: 3.2s;">AVG</text>
+</svg>

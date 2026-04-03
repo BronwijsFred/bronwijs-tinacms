@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# TinaCMS generated files
+tina/__generated__/
+
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+hugo_stats.json
+
+# IDE
+.idea/
+
+# Vite dist (legacy)
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db

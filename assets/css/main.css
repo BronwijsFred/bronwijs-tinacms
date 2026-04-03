@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* ================================================================== */
+/*  COLOR PALETTE (CSS Custom Properties)                              */
+/* ================================================================== */
+
+:root {
+  --color-bg: #FEFCF3;
+  --color-dark: #2C3E2D;
+  --color-primary: #4A7C59;
+  --color-primary-dark: #3D6A4B;
+  --color-primary-light: #7BAF8C;
+  --color-accent: #E07A5F;
+  --color-accent-text: #A8452D;
+  --color-accent-light: #F0A08A;
+  --color-gold: #D4A373;
+  --color-gold-text: #7D5A28;
+  --color-gold-light: #E8C496;
+  --color-surface: #F0EBD8;
+  --color-muted: #586858;
+  --color-white: #FFFFFF;
+  --color-footer-text: #B0C0B2;
+  --color-footer-muted: #9AB59D;
+
+  /* Alpha variants for backgrounds/borders */
+  --color-primary-06: rgba(74, 124, 89, 0.024);
+  --color-primary-08: rgba(74, 124, 89, 0.03);
+  --color-primary-10: rgba(74, 124, 89, 0.04);
+  --color-primary-12: rgba(74, 124, 89, 0.047);
+  --color-primary-15: rgba(74, 124, 89, 0.06);
+  --color-primary-18: rgba(74, 124, 89, 0.07);
+  --color-primary-20: rgba(74, 124, 89, 0.08);
+  --color-primary-30: rgba(74, 124, 89, 0.12);
+  --color-accent-15: rgba(224, 122, 95, 0.06);
+
+  /* Organic easing curves */
+  --ease-organic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-breathe: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ================================================================== */
+/*  BASE STYLES                                                        */
+/* ================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ================================================================== */
+/*  NAVIGATION                                                         */
+/* ================================================================== */
+
+.nav-scrolled {
+  background-color: rgba(254, 252, 243, 0.9) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 2px 24px rgba(44, 62, 45, 0.08);
+}
+
+/* ================================================================== */
+/*  HERO UNDERLINE ANIMATION                                           */
+/* ================================================================== */
+
+.hero-underline path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: draw-underline 1s ease-out 1.2s forwards;
+}
+
+@keyframes draw-underline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ================================================================== */
+/*  INFORMATION TREE SVG ANIMATIONS                                    */
+/* ================================================================== */
+
+/* Path drawing animation */
+.tree-path {
+  stroke-dasharray: var(--path-length, 500);
+  stroke-dashoffset: var(--path-length, 500);
+  animation: draw-path 2s var(--ease-organic) forwards;
+}
+
+.tree-trunk {
+  --path-length: 500;
+  animation-duration: 2s;
+}
+
+.tree-tendril {
+  --path-length: 200;
+  animation-duration: 1.2s;
+}
+
+.tree-branch {
+  --path-length: 300;
+  animation-duration: 1.5s;
+}
+
+@keyframes draw-path {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Node pop-in animation */
+.tree-node {
+  transform: scale(0);
+  animation: node-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes node-pop {
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Leaf decoration animation */
+.tree-leaf {
+  opacity: 0;
+  animation: leaf-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes leaf-appear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+/* Pulsing data dots */
+.pulse-dot {
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+}
+
+/* Ambient floating particles */
+.ambient-particle {
+  animation: ambient-float 3s ease-in-out infinite;
+}
+
+@keyframes ambient-float {
+  0%, 100% { opacity: 0; transform: translateY(0); }
+  50% { opacity: 0.4; transform: translateY(-15px); }
+}
+
+/* Tree labels fade in */
+.tree-label {
+  opacity: 0;
+  animation: label-fade 0.8s ease-out forwards;
+}
+
+@keyframes label-fade {
+  to {
+    opacity: 0.7;
+  }
+}
+
+/* Ground ellipse */
+.tree-ground {
+  transform: scaleX(0);
+  transform-origin: 250px 540px;
+  animation: ground-grow 1.2s var(--ease-organic) 0.2s forwards;
+}
+
+.tree-ground-inner {
+  transform: scaleX(0);
+  transform-origin: 250px 545px;
+  animation: ground-grow 1s var(--ease-organic) 0.4s forwards;
+}
+
+@keyframes ground-grow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ================================================================== */
+/*  CTA FLOATING PARTICLES                                             */
+/* ================================================================== */
+
+.cta-particle {
+  animation: cta-float 4s ease-in-out infinite;
+}
+
+@keyframes cta-float {
+  0%, 100% {
+    transform: translateY(-8px);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+}
+
+/* ================================================================== */
+/*  CARD HOVER EFFECTS                                                 */
+/* ================================================================== */
+
+.stat-card {
+  transition: transform 0.4s var(--ease-breathe), box-shadow 0.4s var(--ease-breathe);
+}
+
+.stat-card:hover {
+  transform: scale(1.04) translateY(-4px);
+}
+
+.arch-card {
+  transition: transform 0.4s var(--ease-breathe), box-shadow 0.4s var(--ease-breathe);
+}
+
+.arch-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(74, 124, 89, 0.1) !important;
+}
+
+.arch-card:hover .arch-card-line {
+  width: 70% !important;
+  transition: width 0.5s var(--ease-organic);
+}
+
+.kernwaarde-card {
+  transition: transform 0.4s var(--ease-breathe), box-shadow 0.4s var(--ease-breathe);
+}
+
+.kernwaarde-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(74, 124, 89, 0.1) !important;
+}
+
+/* ================================================================== */
+/*  ARCHITECTURE CARD BOTTOM LINES (animate on scroll)                 */
+/* ================================================================== */
+
+.arch-card-line {
+  transition: width 1s var(--ease-organic);
+}
+
+.arch-card-line.is-visible {
+  width: 40% !important;
+}

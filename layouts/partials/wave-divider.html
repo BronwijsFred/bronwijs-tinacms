@@ -1,0 +1,54 @@
+{{/* Parameters: .type ("alt" or default), .fromColor, .toColor, .flip */}}
+{{ $type := .type | default "" }}
+{{ $toColor := .toColor | default "var(--color-surface)" }}
+{{ $fromColor := .fromColor | default "var(--color-bg)" }}
+{{ $flip := .flip | default false }}
+
+{{ if eq $type "alt" }}
+  {{/* Alt wave divider - 2 layers */}}
+  <div class="relative w-full overflow-hidden" style="margin-top: -2px; margin-bottom: -2px;">
+    <svg
+      viewBox="0 0 1440 140"
+      preserveAspectRatio="none"
+      class="block w-full"
+      style="height: 90px;"
+      aria-hidden="true"
+    >
+      <path
+        d="M0,100 C240,40 480,110 720,60 C960,10 1200,80 1440,50 L1440,140 L0,140 Z"
+        fill="{{ $toColor }}"
+        opacity="0.4"
+      />
+      <path
+        d="M0,90 C180,30 360,100 540,60 C720,20 900,90 1080,50 C1260,10 1380,70 1440,40 L1440,140 L0,140 Z"
+        fill="{{ $toColor }}"
+      />
+    </svg>
+  </div>
+{{ else }}
+  {{/* Standard wave divider - 3 layers */}}
+  <div class="relative w-full overflow-hidden {{ if $flip }}rotate-180{{ end }}" style="margin-top: -2px; margin-bottom: -2px;">
+    <svg
+      viewBox="0 0 1440 160"
+      preserveAspectRatio="none"
+      class="block w-full"
+      style="height: 100px;"
+      aria-hidden="true"
+    >
+      <path
+        d="M0,80 C180,30 360,110 540,70 C720,30 900,100 1080,60 C1260,20 1380,80 1440,50 L1440,160 L0,160 Z"
+        fill="{{ $toColor }}"
+        opacity="0.35"
+      />
+      <path
+        d="M0,50 C240,120 480,10 720,80 C960,150 1200,30 1440,100 L1440,160 L0,160 Z"
+        fill="{{ $toColor }}"
+        opacity="0.6"
+      />
+      <path
+        d="M0,90 C200,40 400,130 720,70 C1040,10 1240,100 1440,60 L1440,160 L0,160 Z"
+        fill="{{ $toColor }}"
+      />
+    </svg>
+  </div>
+{{ end }}

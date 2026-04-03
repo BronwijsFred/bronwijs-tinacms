@@ -1,0 +1,94 @@
+{{ $data := .Site.Data.architectuur }}
+<section id="architectuur" style="background-color: var(--color-surface);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
+    {{/* Header */}}
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div data-aos="fade-up">
+        <span
+          class="text-sm font-semibold tracking-wider uppercase"
+          style="font-family: 'Outfit', sans-serif; color: var(--color-accent-text);"
+        >
+          {{ $data.sectionLabel }}
+        </span>
+      </div>
+      <h2
+        data-aos="fade-up" data-aos-delay="100"
+        class="text-3xl md:text-4xl lg:text-5xl leading-tight mt-4 mb-6"
+        style="font-family: 'Fraunces', serif; color: var(--color-dark);"
+      >
+        {{ $data.heading }}
+        <em style="color: var(--color-primary); font-style: italic;">{{ $data.headingEmphasis }}</em>
+      </h2>
+      <p
+        data-aos="fade-up" data-aos-delay="200"
+        class="text-base md:text-lg leading-relaxed"
+        style="font-family: 'Outfit', sans-serif; color: var(--color-muted);"
+      >
+        {{ $data.description }}
+      </p>
+    </div>
+
+    {{/* Decorative flow line */}}
+    <div data-aos="fade-in" data-aos-delay="100" class="flex justify-center mb-12">
+      {{ partial "svg/flow-line.html" (dict "color" "var(--color-primary)" "class" "w-64 opacity-30") }}
+    </div>
+
+    {{/* Cards grid */}}
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range $i, $card := $data.cards }}
+        {{ $colorVar := "var(--color-primary)" }}
+        {{ if eq $card.color "accent" }}{{ $colorVar = "var(--color-accent)" }}{{ end }}
+        {{ if eq $card.color "gold" }}{{ $colorVar = "var(--color-gold)" }}{{ end }}
+        <div
+          data-aos="fade-up" data-aos-delay="{{ mul $i 100 }}"
+          class="arch-card group relative p-8 rounded-3xl cursor-default"
+          style="background-color: var(--color-bg); border: 1px solid var(--color-primary-12); box-shadow: 0 1px 3px var(--color-primary-06);"
+        >
+          {{/* Hover background warmth shift */}}
+          <div
+            class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+            style="background: radial-gradient(ellipse at 30% 20%, color-mix(in srgb, {{ $colorVar }} 3%, transparent) 0%, transparent 70%);"
+          ></div>
+
+          {{/* Decorative corner leaf */}}
+          <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-60 transition-all duration-600 group-hover:rotate-12">
+            {{ partial "svg/leaf.html" (dict "size" 28 "color" $colorVar) }}
+          </div>
+
+          {{/* Icon */}}
+          <div
+            class="relative w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg"
+            style="background-color: color-mix(in srgb, {{ $colorVar }} 7%, transparent);"
+          >
+            <svg width="28" height="28" viewBox="0 0 24 28" fill="none" aria-hidden="true">
+              <path d="{{ $card.iconPath }}" fill="{{ $colorVar }}" opacity="0.25" />
+              <path d="{{ $card.iconDetail }}" stroke="{{ $colorVar }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <h3
+            class="text-xl font-semibold mb-3 relative z-10"
+            style="font-family: 'Fraunces', serif; color: var(--color-dark);"
+          >
+            {{ $card.title }}
+          </h3>
+          <p
+            class="text-sm leading-relaxed relative z-10 mb-6"
+            style="font-family: 'Outfit', sans-serif; color: var(--color-muted);"
+          >
+            {{ $card.description }}
+          </p>
+
+          {{/* Bottom line - grows on hover */}}
+          <div class="overflow-hidden relative z-10">
+            <div
+              class="arch-card-line h-[2px] rounded-full"
+              style="background-color: {{ $colorVar }}; opacity: 0.35; width: 0%;"
+              data-target-width="40"
+            ></div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

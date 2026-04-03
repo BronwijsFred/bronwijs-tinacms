@@ -1,0 +1,22 @@
+baseURL = "https://bronwijs.netlify.app/"
+languageCode = "nl"
+defaultContentLanguage = "nl"
+title = "Bronwijs — Informatiebeheer voor de overheid"
+disableKinds = ["taxonomy", "term"]
+
+[build]
+  [build.buildStats]
+    enable = true
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.147.0"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  description = "Bronwijs ontwikkelt OpenGrip: een open, op Common Ground gebaseerde kern die versnipperde informatie via API's ontsluit en samenbrengt."

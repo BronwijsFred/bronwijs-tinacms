@@ -1,0 +1,81 @@
+{{ $nav := .Site.Data.navigation }}
+<nav
+  id="main-nav"
+  aria-label="Hoofdnavigatie"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent"
+>
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="flex items-center justify-between h-18 md:h-20">
+      {{/* Logo */}}
+      <a href="#" class="flex items-center gap-2 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)] rounded-lg">
+        <div class="relative">
+          {{ partial "svg/logo.html" . }}
+        </div>
+        <span
+          class="text-xl font-semibold tracking-tight"
+          style="font-family: 'Fraunces', serif; color: var(--color-dark);"
+        >
+          Bron<span style="color: var(--color-primary);">wijs</span>
+        </span>
+      </a>
+
+      {{/* Desktop links */}}
+      <div class="hidden md:flex items-center gap-1">
+        {{ range $nav.links }}
+          <a
+            href="{{ .href }}"
+            class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-[var(--color-primary)]/8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)]"
+            style="font-family: 'Outfit', sans-serif; color: var(--color-dark);"
+          >
+            {{ .label }}
+          </a>
+        {{ end }}
+        <a
+          href="{{ $nav.cta.href }}"
+          class="ml-3 px-6 py-2.5 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-[var(--color-primary)]/20 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          style="background: linear-gradient(135deg, var(--color-primary), var(--color-dark));"
+        >
+          {{ $nav.cta.label }}
+        </a>
+      </div>
+
+      {{/* Mobile hamburger */}}
+      <button
+        id="menu-toggle"
+        class="md:hidden relative w-10 h-10 rounded-full flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)]"
+        aria-label="Menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <div class="flex flex-col gap-1.5">
+          <span id="hamburger-top" class="block w-5 h-0.5 rounded-full transition-all duration-300" style="background-color: var(--color-dark);"></span>
+          <span id="hamburger-bottom" class="block w-5 h-0.5 rounded-full transition-all duration-300" style="background-color: var(--color-dark);"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  {{/* Mobile menu */}}
+  <div
+    id="mobile-menu"
+    class="md:hidden px-6 pb-6 backdrop-blur-lg hidden opacity-0 -translate-y-2.5 transition-all duration-300"
+    style="background-color: rgba(254, 252, 243, 0.95);"
+  >
+    {{ range $nav.links }}
+      <a
+        href="{{ .href }}"
+        class="mobile-menu-link block px-4 py-3 rounded-xl text-base font-medium transition-colors hover:bg-[var(--color-primary)]/8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)]"
+        style="font-family: 'Outfit', sans-serif; color: var(--color-dark);"
+      >
+        {{ .label }}
+      </a>
+    {{ end }}
+    <a
+      href="{{ $nav.cta.href }}"
+      class="mobile-menu-link block mt-3 px-6 py-3 rounded-full text-center text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)]"
+      style="font-family: 'Outfit', sans-serif; background: linear-gradient(135deg, var(--color-primary), var(--color-dark));"
+    >
+      {{ $nav.cta.label }}
+    </a>
+  </div>
+</nav>

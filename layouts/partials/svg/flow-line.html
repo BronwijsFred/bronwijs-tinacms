@@ -1,0 +1,12 @@
+{{/* Parameters: .color (default: primary), .class */}}
+{{ $color := .color | default "var(--color-primary)" }}
+{{ $class := .class | default "" }}
+<svg width="200" height="40" viewBox="0 0 200 40" fill="none" class="{{ $class }}" aria-hidden="true">
+  <path
+    d="M0 20C30 20 30 8 60 8C90 8 90 32 120 32C150 32 150 14 180 14C195 14 200 20 200 20"
+    stroke="{{ $color }}"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    opacity="0.25"
+  />
+</svg>

@@ -1,0 +1,102 @@
+{{ $cta := .Page.Params.cta }}
+<section id="contact" class="relative overflow-hidden"
+  style="background: linear-gradient(165deg, var(--color-dark) 0%, #2D4A34 20%, var(--color-primary) 42%, #7BA068 55%, var(--color-gold) 72%, var(--color-accent) 90%, #D4685A 100%);"
+>
+  {{/* Warm light overlay */}}
+  <div class="absolute inset-0" style="background: radial-gradient(ellipse at 70% 80%, rgba(212, 163, 115, 0.25) 0%, transparent 60%);"></div>
+
+  {{/* Organic overlay shapes */}}
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -left-40 w-[600px] h-[600px] opacity-10">
+      {{ partial "svg/blob.html" (dict "color" "#FFFFFF" "opacity" 0.15 "class" "w-full h-full") }}
+    </div>
+    <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] opacity-10">
+      {{ partial "svg/blob.html" (dict "color" "#FFFFFF" "opacity" 0.12 "class" "w-full h-full") }}
+    </div>
+
+    {{/* Landscape silhouette */}}
+    <svg
+      viewBox="0 0 1440 200"
+      class="absolute bottom-0 left-0 w-full opacity-10"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      style="height: 120px;"
+    >
+      <path
+        d="M0 200V140C60 130 120 100 200 110C280 120 340 90 420 80C500 70 560 95 640 100C720 105 780 85 860 75C940 65 1000 90 1080 95C1160 100 1220 80 1300 85C1380 90 1420 100 1440 110V200H0Z"
+        fill="white"
+      />
+      <path d="M200 110C200 110 195 80 200 60C205 80 200 110 200 110Z" fill="white" />
+      <path d="M640 100C640 100 633 65 640 40C647 65 640 100 640 100Z" fill="white" />
+      <path d="M1080 95C1080 95 1074 60 1080 35C1086 60 1080 95 1080 95Z" fill="white" />
+      <path d="M420 80C420 80 415 55 420 35C425 55 420 80 420 80Z" fill="white" />
+      <path d="M860 75C860 75 854 48 860 28C866 48 860 75 860 75Z" fill="white" />
+    </svg>
+
+    {{/* Floating particles */}}
+    <div class="cta-particle absolute rounded-full bg-white" style="left: 15%; top: 30%; width: 4px; height: 4px; animation-delay: 0s;"></div>
+    <div class="cta-particle absolute rounded-full bg-white" style="left: 85%; top: 25%; width: 3px; height: 3px; animation-delay: 1s;"></div>
+    <div class="cta-particle absolute rounded-full bg-white" style="left: 45%; top: 70%; width: 5px; height: 5px; animation-delay: 0.5s;"></div>
+    <div class="cta-particle absolute rounded-full bg-white" style="left: 70%; top: 40%; width: 3px; height: 3px; animation-delay: 1.5s;"></div>
+    <div class="cta-particle absolute rounded-full bg-white" style="left: 25%; top: 60%; width: 4px; height: 4px; animation-delay: 2s;"></div>
+    <div class="cta-particle absolute rounded-full bg-white" style="left: 90%; top: 65%; width: 3px; height: 3px; animation-delay: 0.8s;"></div>
+  </div>
+
+  <div class="relative max-w-4xl mx-auto px-6 md:px-10 py-24 md:py-36 text-center">
+    <div data-aos="fade-up">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm mb-8">
+        {{ partial "svg/leaf.html" (dict "size" 16 "color" "#FFFFFF") }}
+        <span
+          class="text-xs font-semibold tracking-wider uppercase text-white"
+          style="font-family: 'Outfit', sans-serif;"
+        >
+          {{ $cta.badge }}
+        </span>
+      </div>
+    </div>
+
+    <h2
+      data-aos="fade-up" data-aos-delay="100"
+      class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-white mb-6"
+      style="font-family: 'Fraunces', serif;"
+    >
+      {{ $cta.heading }}
+      <span class="underline decoration-2 underline-offset-4 text-white">{{ $cta.headingEmphasis }}</span>
+    </h2>
+
+    <div
+      data-aos="fade-up" data-aos-delay="200"
+      class="text-lg md:text-xl leading-relaxed text-white/90 mb-10 max-w-2xl mx-auto space-y-4"
+      style="font-family: 'Outfit', sans-serif;"
+    >
+      {{ range $cta.paragraphs }}
+        <p>{{ . }}</p>
+      {{ end }}
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      {{ range $cta.buttons }}
+        {{ if eq .style "primary" }}
+          <a
+            href="{{ .href }}"
+            class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white font-semibold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-black/20 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            style="font-family: 'Outfit', sans-serif; color: var(--color-dark);"
+          >
+            {{ .label }}
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="transition-transform group-hover:translate-x-1" aria-hidden="true">
+              <path d="M4 10H16M12 6L16 10L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        {{ else }}
+          <a
+            href="{{ .href }}"
+            class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 backdrop-blur-sm text-white font-semibold text-base transition-all duration-300 hover:bg-white/20 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            style="font-family: 'Outfit', sans-serif;"
+          >
+            {{ .label }}
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>

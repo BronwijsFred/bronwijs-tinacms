@@ -1,0 +1,17 @@
+{
+  "name": "bronwijs-website",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Bronwijs Hugo website",
+  "scripts": {
+    "dev": "tinacms dev -c \"hugo server -D\"",
+    "build": "tinacms build && hugo --gc --minify",
+    "build-local": "tinacms build --local --skip-cloud-checks && hugo --gc --minify"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18",
+    "tinacms": "^2.6.1",
+    "@tinacms/cli": "^1.6.12"
+  }
+}

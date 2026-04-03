@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ partial "hero.html" . }}
+  {{ partial "wave-divider.html" (dict "type" "alt" "toColor" "var(--color-dark)") }}
+  {{ partial "urgentie.html" . }}
+  {{ partial "wave-divider.html" (dict "fromColor" "var(--color-dark)" "toColor" "var(--color-surface)") }}
+  {{ partial "about.html" . }}
+  {{ partial "wave-divider.html" (dict "type" "alt" "toColor" "var(--color-surface)") }}
+  {{ partial "architectuur.html" . }}
+  {{ partial "wave-divider.html" (dict "fromColor" "var(--color-surface)" "toColor" "var(--color-bg)") }}
+  {{ partial "samenwerking.html" . }}
+  {{ partial "wave-divider.html" (dict "type" "alt" "toColor" "var(--color-surface)") }}
+  {{ partial "kernwaarden.html" . }}
+  {{ partial "wave-divider.html" (dict "type" "alt" "toColor" "var(--color-primary)") }}
+  {{ partial "cta.html" . }}
+{{ end }}

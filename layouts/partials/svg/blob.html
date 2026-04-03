@@ -1,0 +1,12 @@
+{{/* Parameters: .color (default: primary), .opacity (default: 0.08), .class */}}
+{{ $color := .color | default "var(--color-primary)" }}
+{{ $opacity := .opacity | default 0.08 }}
+{{ $class := .class | default "" }}
+<svg viewBox="0 0 200 200" class="{{ $class }}" fill="none" aria-hidden="true">
+  <path
+    d="M45.3,-58.2C57.9,-49.5,67,-34.1,71.8,-17.1C76.5,-0.1,76.8,18.4,69.4,33.1C62,47.8,46.9,58.6,30.5,64.4C14.1,70.2,-3.6,71,-20.8,66.3C-38,61.6,-54.7,51.5,-63.5,37C-72.3,22.5,-73.3,3.6,-68.5,-12.6C-63.7,-28.8,-53.2,-42.3,-40.3,-51C-27.4,-59.7,-12.2,-63.5,2.8,-67C17.9,-70.5,32.7,-66.8,45.3,-58.2Z"
+    transform="translate(100 100)"
+    fill="{{ $color }}"
+    opacity="{{ $opacity }}"
+  />
+</svg>

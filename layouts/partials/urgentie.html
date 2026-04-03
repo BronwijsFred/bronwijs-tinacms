@@ -1,0 +1,97 @@
+{{ $data := .Site.Data.urgentie }}
+<section id="urgentie" style="background-color: var(--color-dark);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
+    {{/* Header */}}
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div data-aos="fade-up">
+        <span
+          class="text-sm font-semibold tracking-wider uppercase"
+          style="font-family: 'Outfit', sans-serif; color: var(--color-gold-light);"
+        >
+          {{ $data.sectionLabel }}
+        </span>
+      </div>
+      <h2
+        data-aos="fade-up" data-aos-delay="100"
+        class="text-3xl md:text-4xl lg:text-5xl leading-tight mt-4 mb-6 text-white"
+        style="font-family: 'Fraunces', serif;"
+      >
+        {{ $data.heading }} <em style="color: var(--color-gold-light); font-style: italic;">{{ $data.headingEmphasis }}</em> {{ $data.headingSuffix }}
+      </h2>
+      <p
+        data-aos="fade-up" data-aos-delay="200"
+        class="text-base md:text-lg leading-relaxed"
+        style="font-family: 'Outfit', sans-serif; color: #A8B5AA;"
+      >
+        {{ $data.description }}
+      </p>
+    </div>
+
+    {{/* Stats grid */}}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      {{ range $i, $stat := $data.stats }}
+        {{ $colorVar := "var(--color-primary-light)" }}
+        {{ if eq $stat.color "accent-light" }}{{ $colorVar = "var(--color-accent-light)" }}{{ end }}
+        {{ if eq $stat.color "gold-light" }}{{ $colorVar = "var(--color-gold-light)" }}{{ end }}
+        <div
+          data-aos="zoom-in" data-aos-delay="{{ mul $i 100 }}"
+          class="stat-card relative text-center p-8 md:p-10 rounded-3xl overflow-hidden cursor-default"
+          style="background-color: color-mix(in srgb, {{ $colorVar }} 6%, transparent); border: 1px solid color-mix(in srgb, {{ $colorVar }} 15%, transparent); box-shadow: 0 4px 24px color-mix(in srgb, {{ $colorVar }} 6%, transparent);"
+        >
+          {{/* Background blob */}}
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-60">
+            {{ partial "svg/blob.html" (dict "color" $colorVar "opacity" 0.06 "class" "w-56 h-56") }}
+          </div>
+
+          <div class="relative z-10">
+            <div
+              class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2"
+              style="font-family: 'Fraunces', serif; color: {{ $colorVar }};"
+            >
+              {{ $stat.value }}
+            </div>
+            <div
+              class="text-sm font-semibold uppercase tracking-wider mb-1"
+              style="font-family: 'Outfit', sans-serif; color: {{ $colorVar }};"
+            >
+              {{ $stat.label }}
+            </div>
+            <div
+              class="text-sm font-medium mb-3"
+              style="font-family: 'Outfit', sans-serif; color: #B4C3B6;"
+            >
+              {{ $stat.sublabel }}
+            </div>
+            <div
+              class="text-xs leading-relaxed"
+              style="font-family: 'Outfit', sans-serif; color: #8A9B8C;"
+            >
+              {{ $stat.description }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+
+    {{/* Closing text */}}
+    <div data-aos="fade-up" data-aos-delay="400" class="text-center max-w-3xl mx-auto mt-16">
+      <p
+        class="text-base md:text-lg leading-relaxed mb-4"
+        style="font-family: 'Outfit', sans-serif; color: #A8B5AA;"
+      >
+        {{ $data.closingText }}
+      </p>
+      <p
+        class="text-lg md:text-xl leading-relaxed font-semibold"
+        style="font-family: 'Fraunces', serif; color: var(--color-gold-light);"
+      >
+        {{ $data.closingTagline }}
+      </p>
+    </div>
+
+    {{/* Decorative flow line */}}
+    <div data-aos="fade-in" data-aos-delay="400" class="flex justify-center mt-12">
+      {{ partial "svg/flow-line.html" (dict "color" "var(--color-gold)" "class" "w-48 opacity-20") }}
+    </div>
+  </div>
+</section>

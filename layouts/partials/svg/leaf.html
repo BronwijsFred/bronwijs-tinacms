@@ -1,0 +1,18 @@
+{{/* Parameters: .color (default: primary), .size (default: 32), .class */}}
+{{ $color := .color | default "var(--color-primary)" }}
+{{ $size := .size | default 32 }}
+{{ $class := .class | default "" }}
+<svg width="{{ $size }}" height="{{ $size }}" viewBox="0 0 32 32" fill="none" class="{{ $class }}" aria-hidden="true">
+  <path
+    d="M16 2C16 2 6 10 6 18C6 24 10 28 16 30C22 28 26 24 26 18C26 10 16 2 16 2Z"
+    fill="{{ $color }}"
+    opacity="0.18"
+  />
+  <path
+    d="M16 8V26M16 14C13 12 10 14 10 14M16 20C19 18 22 20 22 20"
+    stroke="{{ $color }}"
+    stroke-width="1.2"
+    stroke-linecap="round"
+    opacity="0.4"
+  />
+</svg>
