@@ -1,5 +1,5 @@
 [build]
-  command = "npx tinacms build && hugo --gc --minify"
+  command = "npx tinacms build --local --skip-cloud-checks && hugo --gc --minify"
   publish = "public"
 
 [build.environment]
